@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@font-face {
+	font-family: 'Surgena';
+	src: url('/fonts/surgena.ttf') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@import 'tailwindcss';
+
+@theme {
+	--font-sans: 'Inter', sans-serif;
+}
+
+@plugin '@tailwindcss/typography';
+
+body {
+	position: relative;
+	overflow-x: hidden;
+	gap: 30px;
+	min-height: 100vh;
+	width: 100vw;
+	font-family: 'Surgena', 'Geist', sans-serif;
+	padding: 0;
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+	background-image: url('/background.svg');
+	background-color: #0b0809;
+}
+.circle {
+	animation: float 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+	will-change: transform;
+}
+.fade-edges {
+	mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+	-webkit-mask-image: linear-gradient(
+		to bottom,
+		transparent 0%,
+		black 15%,
+		black 85%,
+		transparent 100%
+	);
+}
+button {
+	cursor: pointer;
+}
+.backg {
+	background-image: url('/backgroun.jpg');
+	background-position: center;
+	background-size: cover;
+	filter: blur(50px);
+	opacity: 0.3;
+}
+.bg {
+	background-image: url('/background.svg');
+}
+.nav-link {
+	position: relative;
+
+	padding: 0.8rem 1.2rem;
+
+	border-radius: 999px;
+
+	color: rgba(255, 255, 255, 0.65);
+
+	transition:
+		color 0.35s ease,
+		background 0.35s ease,
+		transform 0.35s ease,
+		box-shadow 0.35s ease;
+
+	overflow: hidden;
+}
+
+.nav-link:hover {
+	color: white;
+
+	background: rgba(36, 155, 0, 0.04);
+
+	transform: translateY(-2px);
+
+	box-shadow:
+		0 0 20px rgba(126, 207, 154, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.resume-btn {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0.9rem 2.4rem;
+
+	border-radius: 18px;
+
+	border: 1px solid rgba(126, 207, 154, 0.25);
+
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+
+	color: #7ecf9a;
+
+	font-size: 0.85rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+
+	cursor: pointer;
+
+	overflow: hidden;
+
+	transition:
+		transform 0.35s ease,
+		border-color 0.35s ease,
+		box-shadow 0.35s ease,
+		background 0.35s ease;
+}
+
+.resume-btn:hover {
+	transform: translateY(-3px) scale(1.02);
+
+	border-color: rgba(126, 207, 154, 0.45);
+
+	background: linear-gradient(180deg, rgba(126, 207, 154, 0.08), rgba(255, 255, 255, 0.02));
+
+	box-shadow:
+		0 0 30px rgba(126, 207, 154, 0.12),
+		0 10px 30px rgba(0, 0, 0, 0.35),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.resume-btn::before {
+	content: '';
+
+	position: absolute;
+
+	top: 0;
+	left: -120%;
+
+	width: 100%;
+	height: 100%;
+
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+
+	transition: left 0.7s ease;
+}
+
+.resume-btn:hover::before {
+	left: 120%;
+}
+
+.resume-btn span {
+	position: relative;
+	z-index: 2;
+}
+
+.glow {
+	position: absolute;
+
+	inset: 0;
+
+	background: radial-gradient(circle at center, rgba(126, 207, 154, 0.12), transparent 70%);
+
+	opacity: 0;
+
+	transition: opacity 0.35s ease;
+}
+
+.resume-btn:hover .glow {
+	opacity: 1;
+}
+.primary-btn,
+.secondary-btn {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 1rem 2rem;
+
+	border-radius: 18px;
+
+	font-size: 0.92rem;
+	font-weight: 500;
+
+	letter-spacing: 0.02em;
+
+	cursor: pointer;
+
+	overflow: hidden;
+
+	transition:
+		transform 0.35s ease,
+		box-shadow 0.35s ease,
+		background 0.35s ease,
+		border-color 0.35s ease,
+		color 0.35s ease;
+}
+
+/* ───────── PRIMARY ───────── */
+
+.primary-btn {
+	border: 1px solid rgba(126, 207, 154, 0.2);
+
+	background: linear-gradient(180deg, rgba(126, 207, 154, 0.9), rgba(95, 176, 120, 0.9));
+
+	color: #04130a;
+
+	box-shadow:
+		0 10px 30px rgba(126, 207, 154, 0.18),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.primary-btn:hover {
+	transform: translateY(-4px) scale(1.02);
+
+	box-shadow:
+		0 20px 40px rgba(126, 207, 154, 0.28),
+		0 0 30px rgba(126, 207, 154, 0.18);
+}
+
+.primary-btn::before {
+	content: '';
+
+	position: absolute;
+
+	top: 0;
+	left: -120%;
+
+	width: 100%;
+	height: 100%;
+
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+
+	transition: left 0.7s ease;
+}
+
+.primary-btn:hover::before {
+	left: 120%;
+}
+
+.glow {
+	position: absolute;
+	inset: 0;
+
+	background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15), transparent 70%);
+
+	opacity: 0;
+
+	transition: opacity 0.35s ease;
+}
+
+.primary-btn:hover .glow {
+	opacity: 1;
+}
+
+/* ───────── SECONDARY ───────── */
+
+.secondary-btn {
+	border: 1px solid rgba(126, 207, 154, 0.2);
+
+	background: rgba(255, 255, 255, 0.03);
+
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+
+	color: #7ecf9a;
+
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.04),
+		0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.secondary-btn:hover {
+	transform: translateY(-4px) scale(1.02);
+
+	background: rgba(126, 207, 154, 0.06);
+
+	border-color: rgba(126, 207, 154, 0.35);
+
+	box-shadow:
+		0 12px 30px rgba(126, 207, 154, 0.08),
+		0 0 20px rgba(126, 207, 154, 0.06);
+}
+
+.primary-btn span,
+.secondary-btn span {
+	position: relative;
+	z-index: 2;
+}
+
+.nav-link::before {
+	content: '';
+
+	position: absolute;
+
+	left: 50%;
+	bottom: 8px;
+
+	width: 0%;
+	height: 1px;
+
+	background: linear-gradient(90deg, transparent, rgba(126, 207, 154, 0.9), transparent);
+
+	transform: translateX(-50%);
+
+	transition: width 0.35s ease;
+}
+
+.nav-link:hover::before {
+	width: 70%;
+}
+
+.nav-link span {
+	position: relative;
+	z-index: 2;
+}
+.float {
+	animation: float 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+	will-change: transform;
+}
+@keyframes float {
+	0% {
+		transform: translate(0px, 0px) scale(1);
+	}
+
+	25% {
+		transform: translate(20px, -15px) scale(1.03);
+	}
+
+	50% {
+		transform: translate(-10px, 10px) scale(0.98);
+	}
+
+	75% {
+		transform: translate(15px, 20px) scale(1.02);
+	}
+
+	100% {
+		transform: translate(-20px, -10px) scale(1);
+	}
+}
